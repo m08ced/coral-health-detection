@@ -32,4 +32,4 @@ This application uses a two-stage YOLO-based deep learning pipeline:
 
 - Felix S. Calvo
 
-Philippine Science High School – Central Visayas Campus in Cebu, 2024-2026
+Philippine Science High School – Central Visayas Campus in Cebu, 2024-2026# coral-health-detection
