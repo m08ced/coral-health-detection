@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coral Health Detection</title>
+<link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Coral Health Detection</h1>
+<p class="subtitle">An AI-based tool for detecting and assessing the health of hard corals. Created by Cantalejo, Coritico, Dizon</p>
+
+<div class="instructions-box">
+  <strong>How to use:</strong> Upload a single underwater coral reef image (JPG or PNG). The system will automatically detect hard corals and classify each as <span style="color:#89F336;font-weight:bold;">alive</span> or <span style="color:#cc0000;font-weight:bold;">dead</span>. Non-hard coral regions will also be identified. Results appear below with annotated bounding boxes.
+</div>
+
+<div class="top-row">
+  <div class="step-box active" id="step1">
+    <h3>Step 1: Upload Image</h3>
+    <p class="step-desc">Select or drag an underwater coral reef image to begin.</p>
+    <div id="drop-area">
+      <p>Drag &amp; Drop Image</p>
+      <p>or</p>
+      <button type="button" id="browseBtn">Browse Files</button>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+  </div>
+  <div class="arrow">&#10145;</div>
+  <div class="step-box" id="step2">
+    <h3>Step 2: Image Preview</h3>
+    <p class="step-desc">Confirm your selected image before processing.</p>
+    <div id="preview-area">
+      <p id="previewText">No image selected</p>
+      <img id="previewImage" alt="Uploaded image preview">
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">&#8595;</div>
+
+<div class="step-box bottom-box" id="step3">
+  <h3>Step 3: Detection Results</h3>
+  <div id="result-area">
+    <p id="resultText">Results will appear here after upload.</p>
+    <img id="resultImage" alt="Annotated result image">
+    <div id="loadingSpinner" class="spinner" style="display:none;"></div>
+    <p id="loadingText" style="display:none; color:#2b6cb0; font-size:14px;">Analyzing coral health, please wait...</p>
+
+    <div id="summaryBox" style="display:none;">
+      <div id="detectionSummary"></div>
+      <p class="summary-note">Bounding boxes on the image above indicate detected regions. Colors correspond to the health classification below.</p>
+      <div class="legend">
+        <span class="legend-item">
+          <span class="legend-dot" style="background:#89F336;"></span> Alive Hard Coral
+        </span>
+        <span class="legend-item">
+          <span class="legend-dot" style="background:#ff0000;"></span> Dead Hard Coral
+        </span>
+        <span class="legend-item">
+          <span class="legend-dot" style="background:#FFFFFF;"></span> Non-Hard Coral
+        </span>
+      </div>
+    </div>
+  </div>
+  <button id="resetBtn" disabled>Upload New Image</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</body>
+</html>
