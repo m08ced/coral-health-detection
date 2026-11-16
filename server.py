@@ -20,12 +20,14 @@ def load_models():
     try:
         from ultralytics import YOLO
         stage1_path = os.path.join('models', 'stage1_best.pt')
-        stage2_path = os.path.join('models', 'stage2_best.pt')
+        stage2_path = os.path.join('models', 'stage2_v2_best.pt')
+        
         if os.path.exists(stage1_path):
             stage1_model = YOLO(stage1_path)
             print('Stage 1 model loaded.')
         else:
             print(f'Stage 1 weights not found at {stage1_path}')
+            
         if os.path.exists(stage2_path):
             stage2_model = YOLO(stage2_path)
             print('Stage 2 model loaded.')
